@@ -91,18 +91,18 @@
 // числа від max до min за спаданням
 // Додайте усі парні числа від min до max
 
-let min = 1;
-let max = 10;
-let total = 0;
+// let min = 1;
+// let max = 10;
+// let total = 0;
 
-for (let i = max; i >= min; i -= 1) {
-  if (i % 2 !== 0) {
-    continue;
-  }
-  total += i;
-  console.log("Парне:", i);
-}
-console.log(total);
+// for (let i = max; i >= min; i -= 1) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }
+//   total += i;
+//   console.log("Парне:", i);
+// }
+// console.log(total);
 
 //TODO: 8 ===================================
 //Напишіть код, який запитуватиме
@@ -121,6 +121,22 @@ console.log(total);
 //інакше виводити рядок "Невірний пароль!"
 
 // const loginInput = prompt('Введіть свій логін');
+// const loginInput = prompt("Введіть свій логін");
+
+// if (loginInput === "Адмін") {
+//   const password = prompt("Введіть свій пароль");
+//   if (password) {
+//     if (password === "Я головний") {
+//       alert("Добрий день");
+//     } else {
+//       alert("Невірний пароль");
+//     }
+//   } else {
+//     alert("Скасовано");
+//   }
+// } else {
+//   alert("Я вас не знаю");
+// }
 
 //TODO: 9 ===================================
 // При завантаженні сторінки користувачеві пропонується
