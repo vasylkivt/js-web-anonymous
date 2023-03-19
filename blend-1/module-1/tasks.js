@@ -30,30 +30,35 @@
 // значення '1', то у змінну result запишемо 'зима', якщо має значення
 // '2' - 'весна' і так далі. Розв'яжіть завдання через switch-case.
 
-let result = "";
-const num = 5;
-switch (num) {
-  case 1:
-    result = "Зима";
-    break;
-  case 2:
-    result = "Весна";
-    break;
-  case 3:
-    result = "Літо";
-    break;
-  case 4:
-    result = "Осінь";
-    break;
-  default:
-    result = "Такої пори року не існує";
-}
-console.log(result);
+// let result = "";
+// const num = 5;
+// switch (num) {
+//   case 1:
+//     result = "Зима";
+//     break;
+//   case 2:
+//     result = "Весна";
+//     break;
+//   case 3:
+//     result = "Літо";
+//     break;
+//   case 4:
+//     result = "Осінь";
+//     break;
+//   default:
+//     result = "Такої пори року не існує";
+// }
+// console.log(result);
 
 //TODO: 4 ===================================
 // скористаємося циклом while та виведіть у консоль числа від 0 до 50
 
+// let counter = 0;
 
+// while (counter <= 50) {
+//    console.log(counter);
+//    counter += 1;
+// }
 
 //TODO: 5 ===================================
 //Використовуючи конструкцію if...else,
@@ -63,7 +68,9 @@ console.log(result);
 // показати через alert: "Вірно!"
 //інакше відобразити: "Не знаєте? ECMAScript!"
 
-// const question = prompt('Яка «офіційна» назва JavaScript?').toLowerCase();
+// const question = prompt("Яка «офіційна» назва JavaScript?").toLowerCase();
+
+// alert(question === "ecmascript" ? "Вірно" : "Не знаєте? ECMAScript!");
 
 //TODO: 6 ===================================
 // Напишіть програму, яка отримає від користувача
@@ -72,10 +79,30 @@ console.log(result);
 //70 === 01:10
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
 
+// const globalMinutes = 70;
+// const hours = String(Math.floor(globalMinutes / 60)).padStart(2, 0);
+// const minute = String(globalMinutes % 60).padStart(2, 0);
+// console.log(hours);
+// console.log(minute);
+// console.log(`${hours}:${minute}`)
+
 //TODO: 7 ===================================
 //Напишіть цикл, який виводить у консоль
 // числа від max до min за спаданням
 // Додайте усі парні числа від min до max
+
+let min = 1;
+let max = 10;
+let total = 0;
+
+for (let i = max; i >= min; i -= 1) {
+  if (i % 2 !== 0) {
+    continue;
+  }
+  total += i;
+  console.log("Парне:", i);
+}
+console.log(total);
 
 //TODO: 8 ===================================
 //Напишіть код, який запитуватиме
