@@ -2,8 +2,21 @@
 //TODO:=========task-1=================
 //Напиши функцію findSmallerNumber(numbers)
 //яка шукає найменше число в масиві.
-//Додай перевірку що функція отримує масив
-// const numbers = [2, 5, 35, 56, 12, 24, 7, 80, 3];
+// //Додай перевірку що функція отримує масив
+// const numbers = 2;
+
+// function findSmallerNumber(arr) {
+//   if (!Array.isArray(arr)) {
+//     return "Не массив";
+//   }
+//   let min = arr[0];
+//   for (let number of arr) {
+//     if (number < min) {
+//       min = number;
+//     }
+//   }
+//   return min;
+// }
 
 //? Answer
 
@@ -18,77 +31,95 @@
 //аргументів і повертає їхнє середнє значення.
 //Додати перевірку, що аргументи це числа.
 
-// console.log(calculateAverage(10, 10, 20, 200)); // 60
+// function caclculateAverage() {
+//   const args = arguments;
+
+//   let summ = 0;
+//   let total = 0;
+
+//   for (let arg of args) {
+//     if (typeof arg !== "number") {
+//       continue;
+//     }
+//     summ += arg;
+//     total += 1;
+//   }
+//   console.log(total);
+//   console.log(args.length);
+//   return summ / total;
+// }
+
+// console.log(caclculateAverage(10, 10, 20, 200, "sdfgh", true)); // 60
 
 //TODO:=========task-3=================
 const filmoteka = [
   {
     id: 1,
-    title: 'Duna',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    title: "Duna",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     rating: 10,
     actors: [
-      'Amelia Gibson',
-      'Cameron Clayton',
-      'Viola Vasquez',
-      'Lula Collins',
-      'Victor Nichols',
+      "Amelia Gibson",
+      "Cameron Clayton",
+      "Viola Vasquez",
+      "Lula Collins",
+      "Victor Nichols",
     ],
     adult: false,
   },
   {
     id: 2,
-    title: 'Venom',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    title: "Venom",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     rating: 8,
     actors: [
-      'Inez Greer',
-      'Barry Curtis',
-      'Blanche Rios',
-      'Glen Perry',
-      'Logan Powers',
+      "Inez Greer",
+      "Barry Curtis",
+      "Blanche Rios",
+      "Glen Perry",
+      "Logan Powers",
     ],
     adult: true,
   },
   {
     id: 3,
-    title: 'Luca',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    title: "Luca",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     rating: 9,
     actors: [
-      'Marguerite Gibbs',
-      'Lora Alvarez',
-      'Jorge Simpson',
-      'Thomas Hall',
-      'Darrell Hunter',
+      "Marguerite Gibbs",
+      "Lora Alvarez",
+      "Jorge Simpson",
+      "Thomas Hall",
+      "Darrell Hunter",
     ],
     adult: false,
   },
   {
     id: 4,
-    title: 'Free Guy',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    title: "Free Guy",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     rating: 6,
     actors: [
-      'Calvin Andrews',
-      'Mamie Myers',
-      'Madge Townsend',
-      'Ralph Kim',
-      'Jorge Reese',
+      "Calvin Andrews",
+      "Mamie Myers",
+      "Madge Townsend",
+      "Ralph Kim",
+      "Jorge Reese",
     ],
     adult: true,
   },
   {
     id: 5,
-    title: 'Saw',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    title: "Saw",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     rating: 7,
     actors: [
-      'Adele Marsh',
-      'Melvin Burgess',
-      'Jesus Reese',
-      'Harriet Moreno',
-      'Curtis Cox',
+      "Adele Marsh",
+      "Melvin Burgess",
+      "Jesus Reese",
+      "Harriet Moreno",
+      "Curtis Cox",
     ],
     adult: true,
   },
