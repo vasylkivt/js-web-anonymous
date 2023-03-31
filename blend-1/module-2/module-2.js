@@ -140,6 +140,24 @@ const filmoteka = [
 // Видалить перший елемент масиву і виведіть його в консоль.
 // Вставте «Реп» і «Реггі» на початок масиву.
 
+// const musicGenres = []
+// console.log("musicGenres:", musicGenres)
+
+// musicGenres.push("Джаз", "Блюз");
+// console.log("musicGenres:", musicGenres);
+
+// musicGenres.push("Рок-н-рол");
+// console.log("musicGenres:", musicGenres);
+
+// musicGenres.splice(musicGenres.indexOf("Блюз"), 1, "Класика");
+// console.log("musicGenres:", musicGenres);
+
+// console.log("musicGenres.shift:", musicGenres.shift())
+// console.log("musicGenres:", musicGenres);
+
+// musicGenres.unshift("Реп", "Реггі");
+// console.log("musicGenres:", musicGenres);
+
 //TODO:============task-5==============
 // Напишіть функцію min(a, b), яка повертає
 // менше з чисел a, b
@@ -147,9 +165,13 @@ const filmoteka = [
 
 //? Answer
 
-//?
+//?Рішення
+// const min = function (a, b) {
 
-// const result = min(10, 5);
+//  return (typeof a === "number" && typeof b === "number") ? (a < b ? a : b) : 'Введіть два числа'
+// };
+
+// const result = min(15, 5);
 // console.log(result); // 5
 
 //TODO:=============task-6=================
@@ -158,7 +180,14 @@ const filmoteka = [
 
 //? Answer
 
-//?
+//?Рішення
+// const sumAdjacentNumbers = function (someArr) {
+//   let newArr = [];
+//   for (let i = 0; i < someArr.length-1; i += 1) {
+//     newArr.push(someArr[i] + someArr[i+1])
+//   }
+// return newArr
+// };
 
 // const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
 // const result = sumAdjacentNumbers(someArr);
@@ -172,12 +201,16 @@ const filmoteka = [
 //Нумерація елементів має починатися з першого.
 //['Джаз', 'Блюз', 'Рок-н-рол', 'Реггі', 'Реп']
 
-// const musicGenres = ['Джаз', 'Блюз', 'Рок-н-рол', 'Реггі', 'Реп'];
+const musicGenres = ["Джаз", "Блюз", "Рок-н-рол", "Реггі", "Реп"];
 
 //? Answer
 
-//?
-
+//? Рішення
+// const logItems = (array) => {
+//   for (let i = 0; i < array.length; i++) {
+//     console.log(`${i+1} - ${array[i]}`);
+//   }
+// }
 // logItems(musicGenres);
 
 //TODO:=============task-8=================
@@ -187,9 +220,11 @@ const filmoteka = [
 
 //? Answer
 
-//?
+//? Рішення
+// const formatMessage = (message, maxLength) =>
+//   message.length > maxLength ? message.slice(0, maxLength) + "..." : message;
 
-// console.log(formatMessage('Curabitur ligula sapien', 16)); //Повертає 'Curabitur ligula...'.
-// console.log(formatMessage('Curabitur ligula sapien', 23)); //Повертає 'Curabitur ligula sapien'.
-// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15)); //Повертає 'Nunc sed turpis...'.
-// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41)); //Повертає 'Nunc sed turpis a felis in nunc fringilla'.
+// console.log(formatMessage("Curabitur ligula sapien", 16)); //Повертає 'Curabitur ligula...'.
+// console.log(formatMessage("Curabitur ligula sapien", 23)); //Повертає 'Curabitur ligula sapien'.
+// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); //Повертає 'Nunc sed turpis...'.
+// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); //Повертає 'Nunc sed turpis a felis in nunc fringilla'.
