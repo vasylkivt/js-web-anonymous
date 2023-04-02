@@ -12,8 +12,17 @@
 //   name: 'John',
 //   age: 30,
 //   hobby: 'reading',
-//   premium: true,
+// premium: true,
 // };
+
+// user.mood = 'happy';
+// user.hobby = "skydiving";
+// user.premium = false;
+
+// for (const key of Object.keys(user) ){
+//     console.log(`${key}: ${user[key]}`);
+// }
+// console.log("user:", user);
 
 //? Answer
 
@@ -30,11 +39,15 @@
 //   carColor: 'black',
 // };
 
-//? Answer
+// const getBool = (obj, key) =>
+//      Object.keys(obj).includes(key)
 
-//?
+// const getBool = (obj, key) => key in obj
+  //? Answer
 
-// console.log(getBool(obj, 'car')); // true
+  //?
+
+//   console.log(getBool(obj, "car")); // true
 
 //TODO:==========task-3=============
 // У нас є об'єкт, у якому зберігатимуться зарплати
@@ -49,7 +62,14 @@
 //   Ajax: 1470,
 // };
 
+
 // let sum = 0;
+
+// if (Object.keys(salaries) !== 0) {
+//     for (const value of Object.values(salaries)) {
+//         sum += value
+//     }
+// }
 
 //? Answer
 
@@ -62,6 +82,14 @@
 // новий об'єкт без зазначених параметрів
 // Очікуваний результат ({a: 1, b: 2, c: 3}, 'b', 'a') => {c: 3}
 
+
+// const updateObject = function(obj, ...args){
+// let newObj = {...obj}
+//     for (const key of args) {
+//         delete newObj[key]
+//     }
+//     return newObj;
+// }
 //? Answer
 
 //?
