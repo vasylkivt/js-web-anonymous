@@ -7,6 +7,20 @@
 //Рядок "Привіт <name>"
 //Реалізуй перевірку, що prompt не порожній
 
+// function letMeSeeYourName(callback) {
+//   const name = prompt('Enter your name');
+//   if (name) {
+//     callback(name);
+//     return;
+//   }
+//   alert("Error");
+// }
+
+// function greet(name) {
+//   return alert(`Hello ${name}`);
+// }
+// letMeSeeYourName(greet);
+
 //TODO:=================02=============================
 //Напишіть дві функції
 //makeProduct(name, price, callback) - приймає
@@ -17,10 +31,33 @@
 //showProduct(product) - коллбек приймаючий об'єкт
 //продукту і логірующий їх у консоль
 
+// function makeProduct(name, price, callback) {
+//   const id = Date.now();
+//   const product = {
+//     id,
+//     name,
+//     price
+//   }
+//   callback(product);
+// }
+// function showProduct({id,name,price}) {
+//    console.log(`Товар ${id}: ${name}, ціна: ${price} $`)
+// }
+// makeProduct("iphone", 2000, showProduct);
+
 //TODO:=================03=============================
 // Напишіть функцію makeShef(shefName), яка повертає функцію
 // makeDish(dish), що пам'ятає ім'я шефа при її виклику
 // Функція makeDish має логірувати "<shef> is cooking <dish>"
+
+// function makeShef(shefName) {
+//   return function makeDish(dish) {
+//     console.log(`${shefName} is cooking ${dish}`)
+//   }
+// }
+
+// const shef1 = makeShef ("Ivanka");
+// shef1("risotto")
 
 //TODO:=================04=============================
 //Напишіть функцію each(array, callback), яка
@@ -30,11 +67,36 @@
 //якого будуть результати виклику callback
 //callback функції повинна множити елементи на 2
 
-const array = [3, 5, 6, 34, 8, 83, 12, 34];
+// const array = [3, 5, 6, 34, 8, 83, 12, 34];
+
+// function each(arr, callback) {
+//   const newArray = [];
+//   for (let element of arr) {
+//     newArray.push(callback(element))
+//   }
+//   return newArray;
+// }
+
+// function multi(value) {
+//  return value * 2;
+// }
+
+// console.log(each(array, multi));
 
 //TODO:==================05============================
 //Напишіть функцію makeCounter, яка повертає іншу
 //функцію, яка вважає та логує кількість своїх викликів
+
+// function makeCounter() {
+//   let counter = 0;
+//   return () => (counter += 1)
+// }
+
+// const counter = makeCounter();
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
 
 //TODO:==================06============================
 //Напишіть функцію savePassword(password), яка приймає
@@ -42,16 +104,32 @@ const array = [3, 5, 6, 34, 8, 83, 12, 34];
 //рядок і повертає буль true, якщо рядок збігається зі збереженим
 //паролем і false - якщо не збігається
 
+// function savePassword(password) {
+//   return (ourPassword) => password === ourPassword;
+// }
+// const checkPassword = savePassword("admin");
+// console.log(checkPassword("qwe"));
+// console.log(checkPassword("admin"));
+
 //TODO:====================07==========================
 //Напишіть функцію для зберігання знижки. Функція повертає
 //Іншу функцію, яка приймає суму покупки
 //і повертає фінальну суму із збереженою знижкою.
+
+// function saveDicsount(discount) {
+//   return function mainDiscount(sum) {
+//     return sum - sum * (discount / 100);
+//   }
+// }
+// const discount = saveDicsount(10);
+// console.log(discount(3000));
 
 //! Методи масивів
 //TODO:=========task-8=================
 // ? Знайдіть перше непарне число
 
 // const numbers = [2, 1, 6, 8, 9, 10, 12]
+// console.log(numbers.find(number => number % 2 !== 0));
 
 //TODO:===========task-9===============
 
@@ -208,7 +286,7 @@ const users = [
 //     .flatMap(({ skills }) => skills)
 //     .filter((skill, index, array) => array.indexOf(skill) === index)
 //         .sort((a, b) => a.localeCompare(b));
-    
+
 //  console.log(getSortedUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 
@@ -229,7 +307,12 @@ const users = [
 //     Харків: new Date('2023-07-10'),
 // }
 
+// const concertsToArray = objConcerts => Object.keys(objConcerts)
+//   .filter((city) => concerts[city] > new Date())
+//   .sort((a, b) => concerts[a] - concerts[b]);
 // console.log(concertsToArray(concerts))
+
+// console.log(new Date());
 
 //TODO:=========task-11=================
 // У кожному масиві якщо унікальний рядок, у якому не повторюються літери. Знайдіть і виведіть цей рядок.
