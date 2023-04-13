@@ -4,7 +4,7 @@
 // const product = {
 //     price: 5000,
 //     showPrice() {
-//         console.log(price)
+//         console.log(this.price)
 //     },
 // }
 // product.showPrice()
@@ -23,7 +23,7 @@
 //     action()
 // }
 
-// callAction(product.showPrice)
+// callAction(product.showPrice.bind(product))
 
 // Anser:
 
@@ -44,30 +44,58 @@
   | Розкоментувати ; )
   |============================
 */
-// const polly = new User({ userName: 'Polly', age: 30, numbersOfPost: 15 })
-// console.log(polly)
-// polly.getInfo()
+// const User = function ({ userName, age, numbersOfPost } = {}) {
+//   (this.userName = userName),
+//     (this.age = age),
+//     (this.numbersOfPost = numbersOfPost),
+//     (this.getInfo = function () {
+//        console.log(`${userName} ${age} років і в нього ${numbersOfPost} публікацій.`);
+//     });
+// };
+
+// const polly = new User({ userName: "Polly", age: 30, numbersOfPost: 15 });
+// console.log(polly);
+// polly.getInfo();
 
 //TODO:=========task-4=================
-// Напиши клас конструктор який створювати рядки
+// Напиши функція конструктор який створювати рядки
 
-// Aswer:
+// Answer:
+// const StringBuilder = function (baseValue) {
+//   this.value = baseValue;
 
+// };
+
+// StringBuilder.prototype.getValue = function () {
+//   return this.value;
+// };
+
+// StringBuilder.prototype.padStart = function (str) {
+//   this.value = str + this.value;
+// };
+
+// StringBuilder.prototype.padEnd = function (str) {
+//   this.value = this.value + str;
+// };
+
+// StringBuilder.prototype.padBoth = function (str) {
+//   this.value = str + this.value + str;
+// };
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
-// const builder = new StringBuilder('.')
-// console.log(builder.getValue()) // '.'
-// builder.padStart('^')
-// console.log(builder.getValue()) // '^.'
-// builder.padEnd('^')
-// console.log(builder.getValue()) // '^.^'
-// builder.padBoth('=')
-// console.log(builder.getValue()) // '=^.^='
+// const builder = new StringBuilder(".");
+// console.log(builder.getValue()); // '.'
+// builder.padStart("^");
+// console.log(builder.getValue()); // '^.'
+// builder.padEnd("^");
+// console.log(builder.getValue()); // '^.^'
+// builder.padBoth("=");
+// console.log(builder.getValue()); // '=^.^='
 
-// console.log(builder)
+// console.log(builder);
 
 //TODO:=========task-5=================
 //Напиши функцію конструктор Storage який створює об'єкти
@@ -79,17 +107,36 @@
 //addItems(item) - отримує новий товар та додає його до поточних
 //removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
 
-// Aswer:
+// Answer:
+// const Storage = function (productArray = []) {
+//   this.items = productArray;
+// };
+
+// Storage.prototype.getItems = function () {
+//   return this.items;
+// };
+
+// Storage.prototype.addItem = function (newItem) {
+//   this.items.push(newItem);
+//   return this.items;
+// };
+
+// Storage.prototype.removeItem = function (newItem) {
+//   this.items = this.items.filter((value) => value !== newItem);
+//   return this.items;
+// };
 
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
-const storage = new Storage(['apple', 'banana', 'mango'])
+// const storage = new Storage(["apple", "banana", "mango"]);
 
-console.log(storage)
-console.log(storage.removeItem('apple'))
+// console.log(storage);
+// console.log(storage.getItems());
+// console.log(storage.addItem("kiwi"));
+// console.log(storage.removeItem("apple"));
 
 //TODO:=========task-6=================
 /**
@@ -97,17 +144,35 @@ console.log(storage.removeItem('apple'))
  * бойовий корабель
  */
 
-// Aswer:
+// Answer:
+// const Ship = function (country, hp, capitanName, price) {
+//   this.country = country;
+//   this.hp = hp;
+//   this.capitanName = capitanName;
+//   this.price = price;
+// };
 
+// Ship.prototype.fire = function () {
+//   console.log(`hi from ${this.country}. My armor is ${this.armor}`);
+// };
+
+// const WarShip = function (armor, ...args) {
+//   this.armor = armor;
+//   Ship.apply(this, args);
+// };
+
+// WarShip.prototype = Object.create(Ship.prototype);
+
+// WarShip.prototype.constructor = WarShip;
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const ws = new WarShip(999, 'US', 100, 'Jack Sparrow', '99$')
-
-// ws.fire()
+// const ws = new WarShip(999, "US", 100, "Jack Sparrow", "99$");
+// console.dir(WarShip);
+// ws.fire();
 
 //! Class
 //TODO:=========task-7=================
@@ -116,21 +181,41 @@ console.log(storage.removeItem('apple'))
 //Оголоси приватні властивості #login #email,
 //доступ до яких зроби через геттер та сеттер login email
 
-// Aswer:
+// Answer:
+// class Client {
+//   #login;
+//   #email;
 
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData() {
+//     return { login: this.#login, email: this.#email };
+//   }
+
+//   set changeLogin(newLogin) {
+//     this.#login = newLogin;
+//   }
+
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const client = new Client('mango', 'mango@gmail.com')
-
-// client.changeEmail = 'mango555@gmail.com'
-// console.log(client.getClientData.email)
-// client.changeLogin = '12345'
-// console.log(client.getClientData.login)
-
+// const client = new Client("mango", "mango@gmail.com");
+// console.log(client);
+// client.changeEmail = "mango555@gmail.com";
+// console.log(client.getClientData.email);
+// client.changeLogin = "12345";
+// console.log(client.getClientData.login);
+// console.log(client);
 //TODO:=========task-8=================
 //Напиши клас Notes який управляє колекцією нотаток у
 //властивості items.
@@ -201,20 +286,20 @@ console.log(storage.removeItem('apple'))
 //і який успадковує клас Worker, додаючи метод getHierarchyLevel
 //Реалізувати завдання за допомогою ES5 прототипів та ES6 класів
 
-const HIERARCHY_LEVEL = {
-    TOP: 'top',
-    BOTTOM: 'bottom',
-}
+// const HIERARCHY_LEVEL = {
+//     TOP: 'top',
+//     BOTTOM: 'bottom',
+// }
 
-const workerObj = {
-    name: 'Mango',
-    surname: 'Worker',
-    age: 30,
-    position: 'FE developer',
-    salary: 5000,
-}
+// const workerObj = {
+//     name: 'Mango',
+//     surname: 'Worker',
+//     age: 30,
+//     position: 'FE developer',
+//     salary: 5000,
+// }
 
-ES5
+// ES5
 
 // Aswer:
 
@@ -229,7 +314,7 @@ ES5
 // console.log(worker.getSalary())
 // console.log(worker.getHierarchyLevel())
 
-ES6
+// ES6
 // Aswer:
 
 /**
@@ -247,38 +332,38 @@ ES6
 // Створити гру за допомогою класів. Створити class Героя, Створити class гравця, Створити class гри.
 
 // Список Героїв
-const HERO_LIST = [
-    {
-        name: 'thor',
-        health: 2000,
-        damage: 300,
-    },
-    {
-        name: 'thanos',
-        health: 2200,
-        damage: 350,
-    },
-    {
-        name: 'hulk',
-        health: 2800,
-        damage: 400,
-    },
-]
+// const HERO_LIST = [
+//     {
+//         name: 'thor',
+//         health: 2000,
+//         damage: 300,
+//     },
+//     {
+//         name: 'thanos',
+//         health: 2200,
+//         damage: 350,
+//     },
+//     {
+//         name: 'hulk',
+//         health: 2800,
+//         damage: 400,
+//     },
+// ]
 
 // Створюємо екземпляр Гравця 1
-const player1 = new Player('John')
+// const player1 = new Player('John')
 // Выбираем Героя
-player1.selectHero('hulk')
+// player1.selectHero('hulk')
 
 // Створюємо екземпляр Гравця 2
-const player2 = new Player('Tom')
+// const player2 = new Player('Tom')
 // Обираємо Героя
-player2.selectHero('thor')
+// player2.selectHero('thor')
 
 // console.log(player1);
 // console.log(player2);
 
-const game = new Game(player1, player2)
+// const game = new Game(player1, player2)
 // console.log(game);
 
 // game.run() // Кнопка Start!
