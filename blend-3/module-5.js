@@ -436,38 +436,112 @@
 // Створити гру за допомогою класів. Створити class Героя, Створити class гравця, Створити class гри.
 
 // Список Героїв
-// const HERO_LIST = [
-//     {
-//         name: 'thor',
-//         health: 2000,
-//         damage: 300,
-//     },
-//     {
-//         name: 'thanos',
-//         health: 2200,
-//         damage: 350,
-//     },
-//     {
-//         name: 'hulk',
-//         health: 2800,
-//         damage: 400,
-//     },
-// ]
+const HERO_LIST = [
+  {
+    name: 'thor',
+    health: 2000,
+    damage: 300,
+  },
+  {
+    name: 'thanos',
+    health: 2200,
+    damage: 350,
+  },
+  {
+    name: 'hulk',
+    health: 2800,
+    damage: 400,
+  },
+];
 
-// Створюємо екземпляр Гравця 1
-// const player1 = new Player('John')
+// Створюємо class Героя
+class Hero {
+  constructor(name, damage, health) {
+    this.name = name;
+    this.damage = damage;
+    this.health = health;
+  }
+
+  // Створюємо метод
+  getDamage = function () {
+    return this.damage;
+  };
+
+  // Створюємо метод
+  receiveDamage = function (damage) {
+    this.health = this.health - damage;
+  };
+}
+
+// Створюємо class Гравця
+class Player {
+  constructor(name) {
+    this.name = name;
+    this.hero = null;
+  }
+
+  // Створюємо метод
+  selectHero = function (heroName) {
+    const userHero = HERO_LIST.find((hero) => hero.name === heroName); // Ищет героя методом find
+    this.hero = new Hero(userHero.name, userHero.damage, userHero.health);
+  };
+}
+
+// Створюємо class Гри
+class Game {
+  constructor(player1, player2) {
+    this.player1 = player1;
+    this.player2 = player2;
+  }
+
+  // Створюємо метод для гри fight (Логіка)
+  fight = function () {
+    const { hero: player1hero } = this.player1; // Делаем десктрукторизацию с подменой (hero:), что бы не было ошибки!
+    const { hero: player2hero } = this.player2; // Делаем десктрукторизацию с подменой (hero:), что бы не было ошибки!
+    const hero1damage = player1hero.getDamage(); // В переменную забираем damage Игрока 1
+    const hero2damage = player2hero.getDamage(); // В переменную забираем damage Игрока 2
+
+    // Цикл while для логіки
+    while (player1hero.health > 0 && player2hero.health > 0) {
+      player1hero.receiveDamage(hero2damage);
+      player2hero.receiveDamage(hero1damage);
+      this.logHits(player1hero.name, hero1damage, player2hero.health);
+      this.logHits(player2hero.name, hero2damage, player1hero.health);
+    }
+
+    const winner = player1hero.health > 0 ? this.player1 : this.player2;
+    this.greetWinner(winner);
+  };
+
+  // Створюємо метод для Переможця
+  greetWinner = function (winner) {
+    console.log(`The winner is 🏆🏆🏆 ${winner.name} 🏆🏆🏆`);
+  };
+  // Створюємо метод для Гри
+  logHits = function (heroName, damage, enemyHealth) {
+    console.log(
+      `Hero ${heroName} 🤜🏻 💨 💥 ${damage}. Enemy ${enemyHealth} left`
+    );
+  };
+  // Створюємо метод для Гри run
+  run = function () {
+    this.fight();
+  };
+}
+
+const player1 = new Player('John');
 // Выбираем Героя
-// player1.selectHero('hulk')
+player1.selectHero('hulk');
 
 // Створюємо екземпляр Гравця 2
-// const player2 = new Player('Tom')
+const player2 = new Player('Tom');
 // Обираємо Героя
-// player2.selectHero('thor')
+player2.selectHero('thor');
 
 // console.log(player1);
 // console.log(player2);
 
-// const game = new Game(player1, player2)
+const game = new Game(player1, player2);
 // console.log(game);
 
-// game.run() // Кнопка Start!
+game.run(); // Кнопка Start!
