@@ -220,30 +220,54 @@
 //Напиши клас Notes який управляє колекцією нотаток у
 //властивості items.
 //Нотатка - це об'єкт із властивостями text і priority.
-//Додай класу статичний метод Priopity,
-//який буде повертати об'єкт із пріоритетами.
+//Додай класу статичний метод Priopity,+
+//який буде повертати об'єкт із пріоритетами.+
 //Додай методи addNote(note), removeNote(text)
 //updatePriority(text, newPriority)
 
 // Aswer:
+// class Notes {
+//   static Priority() {
+//     return {
+//       HIGHT: "hight",
+//       LOW: "low",
+//     };
+//   }
 
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   addNote(note) {
+//     return this.items.push(note);
+//   }
+
+//   removeNote(text) {
+//     return (this.items = this.items.filter((item) => item.text !== text));
+//   }
+
+//   updatePriority({ text, newPriority }) {
+//     const value = this.items.find((item) => item.text === text);
+//     value.priority = newPriority;
+//   }
+// }
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const note1 = new Notes()
+// const note1 = new Notes();
 
-// note1.addNote({ text: 'Note1', priority: Notes.Priority().LOW })
-// note1.addNote({ text: 'Note2', priority: Notes.Priority().LOW })
-// console.table(note1.items)
+// note1.addNote({ text: "Note1", priority: Notes.Priority().LOW });
+// note1.addNote({ text: "Note2", priority: Notes.Priority().LOW });
+// console.table(note1.items);
 
-// note1.removeNote('Note1')
-// console.table(note1.items)
+// note1.removeNote("Note1");
+// console.table(note1.items);
 
-// note1.updatePriority({ text: 'Note2', newPriority: Notes.Priority().HIGHT })
-// console.table(note1.items)
+// note1.updatePriority({ text: "Note2", newPriority: Notes.Priority().HIGHT });
+// console.table(note1.items);
 
 //TODO:=========task-9=================
 // Створи клас для калькулятора, який має такі методи:
@@ -253,31 +277,65 @@
 // Об'єкт класу може проводити послідовні операції у вигляді ланцюжка
 
 // Aswer:
+// class Calculator {
+//   #result = null;
+//   constructor() {
+//     this.#result = 0;
+//   }
 
+//   number(num) {
+//     this.#result = num;
+//     return this;
+//   }
+
+//   add(num) {
+//     this.#result += num;
+//     return this;
+//   }
+
+//   substruct(num) {
+//     this.#result -= num;
+//     return this;
+//   }
+
+//   divide(num) {
+//     this.#result /= num;
+//     return this;
+//   }
+
+//   multiply(num) {
+//     this.#result *= num;
+//     return this;
+//   }
+
+//   get result() {
+//     return this.#result;
+//   }
+// }
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const calculator = new Calculator()
+// const calculator = new Calculator();
 // const res = calculator
-//     .number(10)
-//     .add(10)
-//     .divide(2)
-//     .multiply(4)
-//     .substruct(5).result
+//   .number(10)
+//   .add(10)
+//   .divide(2)
+//   .multiply(4)
+//   .substruct(5).result;
 
-// console.log(res)
+// console.log(res);
 
 // const res2 = calculator
-//     .number(20)
-//     .substruct(40)
-//     .multiply(-8)
-//     .divide(160)
-//     .add(20).result
+//   .number(20)
+//   .substruct(40)
+//   .multiply(-8)
+//   .divide(160)
+//   .add(20).result;
 
-// console.log(res2)
+// console.log(res2);
 
 //TODO:=========task-10=================
 // Створити клас Worker, у якого є властивості name, age, salary.
@@ -287,46 +345,92 @@
 //Реалізувати завдання за допомогою ES5 прототипів та ES6 класів
 
 // const HIERARCHY_LEVEL = {
-//     TOP: 'top',
-//     BOTTOM: 'bottom',
-// }
+//   TOP: "top",
+//   BOTTOM: "bottom",
+// };
 
 // const workerObj = {
-//     name: 'Mango',
-//     surname: 'Worker',
-//     age: 30,
-//     position: 'FE developer',
-//     salary: 5000,
-// }
+//   name: "Mango",
+//   surname: "Worker",
+//   age: 30,
+//   position: "FE developer",
+//   salary: 5000,
+// };
 
 // ES5
 
 // Aswer:
+// const Worker = function (obj = {}) {
+//   const { name, age, salary, position, surname } = obj;
+//   this.name = name;
+//   this.age = age;
+//   this.salary = salary;
+//   this.position = position;
+//   this.surname = surname;
+// };
 
+// Worker.prototype.getSalary = function () {
+//   return this.salary;
+// };
+
+// const TopLevelWorker = function (obj = {}, hierarchyLevel) {
+//   this.hierarchyLevel = hierarchyLevel;
+//   Worker.call(this, obj);
+// };
+
+// TopLevelWorker.prototype.getSalary = Worker.prototype.getSalary;
+
+// TopLevelWorker.prototype.getHierarchyLevel = function () {
+//   return this.hierarchyLevel;
+// };
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const worker = new TopLevelWorker(workerObj, HIERARCHY_LEVEL.BOTTOM)
-// console.log(worker)
-// console.log(worker.getSalary())
-// console.log(worker.getHierarchyLevel())
+// const worker = new TopLevelWorker(workerObj, HIERARCHY_LEVEL.BOTTOM);
+// console.log(worker);
+// console.log(worker.getSalary());
+// console.log(worker.getHierarchyLevel());
 
 // ES6
 // Aswer:
+// class WorkerES6 {
+//   constructor(obj = {}) {
+//     const { name, age, salary, position, surname } = obj;
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+//     this.position = position;
+//     this.surname = surname;
+//   }
 
+//   getSalary() {
+//     return this.salary;
+//   }
+// }
+
+// class TopLevelWorkerES6 extends WorkerES6 {
+//   constructor(obj = {}, hierarchyLevel) {
+//     super(obj);
+//     this.hierarchyLevel = hierarchyLevel;
+//   }
+
+//   getHierarchyLevel() {
+//     return this.hierarchyLevel;
+//   }
+// }
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const topWorker = new TopLevelWorkerES6(workerObj, HIERARCHY_LEVEL.TOP)
-// console.log(topWorker)
-// console.log(topWorker.getSalary())
-// console.log(topWorker.getHierarchyLevel())
+// const topWorker = new TopLevelWorkerES6(workerObj, HIERARCHY_LEVEL.TOP);
+// console.log(topWorker);
+// console.log(topWorker.getSalary());
+// console.log(topWorker.getHierarchyLevel());
 
 //TODO:==========bonus============
 // Створити гру за допомогою класів. Створити class Героя, Створити class гравця, Створити class гри.
