@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h2>Модуль 6 - DOM</h2>
+    <!-- ЗАДАЧА 1 -->
+    <section>
+      <button type="button" class="modal-open js-modal-open">
+        Відкрити модалку
+      </button>
+      <div class="backdrop js-backdrop">
+        <div class="modal">
+          <button type="button" class="close-btn js-modal-close">X</button>
+
+          <form class="login-form js-modal__form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="enter your name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="enter your email" />
+            </label>
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                placeholder="enter your password"
+              />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЗАДАЧА 2 -->
+    <!-- todos -->
+    <section>
+      <div class="container">
+        <h2>TODO List</h2>
+        <form class="todos-form js-todos__form">
+          <input
+            class="todos-input"
+            type="text"
+            placeholder="Додати завдання"
+            name="user-todos"
+          />
+          <button type="submit">Додати</button>
+        </form>
+        <ul>
+          <!-- сюди будуть додаватися елементи списку -->
+        </ul>
+      </div>
+    </section>
+
+    <h2>Модуль 7 - Делегування подій</h2>
+
+    <!-- ЗАДАЧА 1 -->
+
+    <section class="calc">
+      <button class="calc-btn__show js-show__btn" type="button">
+        Показати калькулятор
+      </button>
+      <div class="js-container"></div>
+    </section>
+
+    <!-- <script src="./js/module-6.js" type="module"></script>
+    <script src="./js/module-7.js" type="module"></script> -->
+  </body>
+</html>
