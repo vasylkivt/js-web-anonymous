@@ -89,3 +89,75 @@ function onSubmit(evt) {
   loginFormEl.reset();
   closeModalWindow();
 }
+
+// //TODO:====================02=============TODOS===============
+
+// ### Список справ todos:
+
+// 1 - Напиши скрипт для застосунку todos. Реалізуй методи додавання та видалення щоденних справ.
+//  2 - Реалізуй перевірку на неможлівість додати пусту справу до списку справ.
+
+// #### Виконуй завдвння послідовно:
+
+// - Спочатку знайди елементи у Дом дереві, з якими тобі потрібно працювати.
+// - Додай слухачі подій з відповідними подіями
+// - Пропиши три функції, які тобі допоможуть це реалізувати
+// - Функція обробник на додавання елементів "onClickSubmit". Її завдання, зчитати значення з інпуту, виконай за допомогою "currentTarget.elements", також не забувай
+//   про метод trim(), який видаляє пробіли. Ця функція повинна робити перевірку на пустий інпут, створювати обьект, додавати до масиву нову todos і чистити інпут. Також
+//   запускати функцію рендера сторінкі.
+// - Функція "onBtnClick", яка буде видаляти todos. Вона повинна знайти id todos, яку потрібно видалити. Значення id можно считати з дата атрибуту за допомогою
+//   "target.dataset.id", але не забувай, що там буде рядок і можно використати метод "parseInt". Для видалення можно використати метод "filter". Після видалення ми
+//   повинні відрендорити сторінку за допомогою функції "updateList".
+// - І сама функція "updateList". Ії завдання створити розмітку за допомого метода createElement і setAttribute, додати на сторінку за допомогою метода "append". Не
+//   забувай чистити розмітку перед її вставкою.
+
+const formEl = document.querySelector(".js-todos__form");
+const listEl = document.querySelector("ul");
+let items = [];
+
+const uptadeList = () => {
+  const markup = items.map((item) => {
+    const liEl = document.createElement("li");
+    const spanEl = document.createElement("span");
+    spanEl.textContent = item.text;
+    liEl.appendChild(spanEl);
+    const btnEl = document.createElement("button");
+    btnEl.setAttribute("type", "button");
+    btnEl.setAttribute("class", "delete");
+    btnEl.setAttribute("data-id", item.id);
+    btnEl.textContent = "Delete";
+    liEl.appendChild(btnEl);
+    return liEl;
+  });
+  listEl.innerHTML = "";
+  listEl.append(...markup);
+};
+
+const onClickSubmit = (event) => {
+  event.preventDefault();
+  const input = event.currentTarget.elements["user-todos"];
+  const todos = input.value.trim();
+
+  if (!todos) {
+    return alert("Please enter your todos");
+  }
+
+  const item = {
+    id: Date.now(),
+    text: todos,
+  };
+  items.push(item);
+
+  uptadeList();
+  input.value = "";
+};
+
+const onBtnClick = (event) => {
+  const todosId = parseInt(event.target.dataset.id);
+
+  items = items.filter((item) => item.id !== todosId);
+  uptadeList();
+};
+
+formEl.addEventListener("submit", onClickSubmit);
+listEl.addEventListener("click", onBtnClick);
