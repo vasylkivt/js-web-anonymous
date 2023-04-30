@@ -438,17 +438,17 @@
 // Список Героїв
 const HERO_LIST = [
   {
-    name: 'thor',
+    name: "thor",
     health: 2000,
     damage: 300,
   },
   {
-    name: 'thanos',
+    name: "thanos",
     health: 2200,
     damage: 350,
   },
   {
-    name: 'hulk',
+    name: "hulk",
     health: 2800,
     damage: 400,
   },
@@ -529,19 +529,19 @@ class Game {
   };
 }
 
-const player1 = new Player('John');
-// Выбираем Героя
-player1.selectHero('hulk');
+// const player1 = new Player('John');
+// // Выбираем Героя
+// player1.selectHero('hulk');
 
 // Створюємо екземпляр Гравця 2
-const player2 = new Player('Tom');
-// Обираємо Героя
-player2.selectHero('thor');
+// const player2 = new Player('Tom');
+// // Обираємо Героя
+// player2.selectHero('thor');
 
 // console.log(player1);
 // console.log(player2);
 
-const game = new Game(player1, player2);
+// const game = new Game(player1, player2);
 // console.log(game);
 
-game.run(); // Кнопка Start!
+// game.run(); // Кнопка Start!
